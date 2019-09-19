@@ -28,3 +28,5 @@ t-*.tar
 
 # VSCode plugin
 /.elixir_ls/
+
+/config/github.exs

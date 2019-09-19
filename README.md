@@ -1,21 +1,4 @@
-# T
+**Installation**
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `t` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:t, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/t](https://hexdocs.pm/t).
-
+# In folder `config` copy file `github.exs.dist` to `github.exs` and specify your Github token or set to `nil` if no exists.
+# Other standard steps (like `mix deps.get` etc...)
