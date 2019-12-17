@@ -9,7 +9,7 @@
 
 1. `T.Cartesian.product/2`
 2. `T.GithubRepo.stars/1`
-3. `T.Ecto.special_grouped/0`
+3. `T.Ecto.special_grouped/0`, `T.Ecto.special_grouped_2/0`
 
 
 **Running tests**

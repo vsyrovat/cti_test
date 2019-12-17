@@ -45,4 +45,8 @@ defmodule T.EctoTest do
   test "ecto query correctness" do
     assert special_grouped() == @expectation
   end
+  
+  test "ecto query v2 correctness" do
+    assert special_grouped_2 == @expectation
+  end
 end

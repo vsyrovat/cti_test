@@ -25,6 +25,7 @@ end
 defmodule T.Ecto do
   alias T.{Repo, User, Post}
   import Ecto.Query
+  import Ecto.Query.API
   
   def special_grouped do
     query = from p in Post,
@@ -43,5 +44,23 @@ defmodule T.Ecto do
       Map.put(acc, user_id, acc_put)
     end)
     |> Map.values()
+  end
+  
+  def special_grouped_2 do
+    query = from p in Post,
+      group_by: [p.user_id],
+      select: {
+        p.user_id,
+        fragment("SUM(CASE WHEN ? = ? THEN 1 ELSE 0 END)", p.category, "link"),
+        fragment("SUM(CASE WHEN ? = ? THEN 1 ELSE 0 END)", p.category, "article"),
+        fragment("SUM(CASE WHEN ? = ? THEN 1 ELSE 0 END)", p.category, "promotion")
+      },
+      order_by: [asc: p.user_id]
+     
+    Repo.all(query)
+    |> Enum.map(fn row -> 
+      {a, b, c, d} = row
+      %{user_id: a, link_count: b, article_count: c, promotion_count: d}
+    end)
   end
 end
